@@ -1,0 +1,138 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.workorder</groupId>
+  <artifactId>workorder</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>workorder</name>
+  <build>
+    <plugins>
+      <plugin>
+   		<groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.5.1</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <properties>
+  	<workorder.version>1.0.0</workorder.version>
+    <spring.version>4.2.5.RELEASE</spring.version>
+  	<mybatis.version>3.2.8</mybatis.version>
+  	<mysql.version>5.1.38</mysql.version>
+  	<druid.version>1.0.13</druid.version>
+
+  </properties>
+  
+  
+  <dependencyManagement>
+   <dependencies>
+  
+  <!-- spring -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
+			</dependency>
+  
+  			<!-- mybatis -->
+  			<dependency>
+    			<groupId>org.mybatis</groupId>
+    			<artifactId>mybatis</artifactId>
+   		 		<version>${mybatis.version}</version>
+			</dependency>
+			
+			<!-- mysql -->
+			<dependency>
+    			<groupId>mysql</groupId>
+    			<artifactId>mysql-connector-java</artifactId>
+   				<version>${mysql.version}</version>
+			</dependency>
+			
+			<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
+		</dependency>
+  	</dependencies>
+  
+  </dependencyManagement>
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  <modules>
+  	<module>workorder-base</module>
+  	<module>workordre-common</module>
+  	<module>workorder-service</module>
+  	<module>workorder-app</module>
+  	<module>workorder-interface</module>
+  	<module>workorder-admin</module>
+  </modules>
+</project>
