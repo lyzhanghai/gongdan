@@ -1,13 +1,20 @@
 package com.gongdan.app.web;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.gongdan.service.UserService;
+
 @Controller
 @RequestMapping("/user/")
 public class UserController {
+	
+	@Resource(name="userServiceImpl")
+	private UserService userService;
 	
 	@RequestMapping("login")
 	@ResponseBody
@@ -26,7 +33,7 @@ public class UserController {
 	public Object test(){
 		
 		
-		System.out.println("111111111");
+		userService.getUserInfo("11");
 		
 		return null;
 	}

@@ -35,6 +35,7 @@
     <param-value>
             classpath:spring/spring-dao.xml
      		classpath:spring/spring-mvc.xml
+     		classpath:spring/spring-beans.xml
     </param-value>
 </context-param>	
 	
