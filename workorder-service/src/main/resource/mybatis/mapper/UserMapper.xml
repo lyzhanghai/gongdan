@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
+<mapper namespace="com.gongdan.dao.UserDao">
 
 	<select id="getUserInfo" parameterType="java.lang.String" resultType="User">
 	
 		select * from t_gd_user 
-		where user_num =#{userNum}
+		where user_number =#{userNum}
 	</select>
 
 

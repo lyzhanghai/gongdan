@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.gongdan.em.ErrorCode;
+import com.gongdan.entity.User;
 import com.gongdan.service.UserService;
+import com.gongdan.support.Result;
 
 @Controller
 @RequestMapping("/user/")
@@ -32,9 +35,11 @@ public class UserController {
 	@ResponseBody
 	public Object test(){
 		
-		
-		userService.getUserInfo("11");
-		
-		return null;
+		Result<Object> result = new  Result<Object>();
+		User user = userService.getUserInfo("11");
+		result.setResultCode(ErrorCode.SUCCESS.getCode());
+		result.setResultMsg("成功");
+		result.setResultData(user);
+		return result;
 	}
 }

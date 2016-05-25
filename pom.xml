@@ -26,11 +26,35 @@
   	<mysql.version>5.1.38</mysql.version>
   	<druid.version>1.0.13</druid.version>
 	<mybatis-spring.version>1.2.2</mybatis-spring.version>
+	<jackson-databind.version>2.7.2</jackson-databind.version>
+	<jackson-core.version>2.7.2</jackson-core.version>
+	<mqttv3.version>1.0.1</mqttv3.version>
   </properties>
   
   
   <dependencyManagement>
-   <dependencies>
+   	<dependencies>
+   
+   <!-- mqtt消息推送 -->
+  			<dependency>
+    			<groupId>org.eclipse.paho</groupId>
+    			<artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+    			<version>${mqttv3.version}</version>
+			</dependency>
+   
+   
+  <!--jackson  -->
+  			<dependency>
+   				<groupId>com.fasterxml.jackson.core</groupId>
+    			<artifactId>jackson-core</artifactId>
+    			<version>${jackson-databind.version}</version>
+			</dependency>
+			<dependency>
+    			<groupId>com.fasterxml.jackson.core</groupId>
+    			<artifactId>jackson-databind</artifactId>
+    			<version>${jackson-core.version}</version>
+			</dependency>
+  
   
   <!-- spring -->
 			<dependency>
