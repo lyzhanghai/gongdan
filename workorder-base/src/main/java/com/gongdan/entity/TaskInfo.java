@@ -1,6 +1,7 @@
 package com.gongdan.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class TaskInfo implements Serializable {
 
@@ -22,7 +23,14 @@ public class TaskInfo implements Serializable {
 	private String endTime;
 
 	private String updateTime;
+	
+	
+	
+	private List<TaskExtraInfo> extraInfos;
 
+	
+	private List<TaskParticipator> participators;
+	
 	public Long getTaskId() {
 		return taskId;
 	}
@@ -87,4 +95,22 @@ public class TaskInfo implements Serializable {
 		this.updateTime = updateTime;
 	}
 
+	public List<TaskExtraInfo> getExtraInfos() {
+		return extraInfos;
+	}
+
+	public void setExtraInfos(List<TaskExtraInfo> extraInfos) {
+		this.extraInfos = extraInfos;
+	}
+
+	public List<TaskParticipator> getParticipators() {
+		return participators;
+	}
+
+	public void setParticipators(List<TaskParticipator> participators) {
+		this.participators = participators;
+	}
+
+	
+	
 }

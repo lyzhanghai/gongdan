@@ -9,5 +9,8 @@ import com.gongdan.entity.User;
 public interface UserDao {
 	
 	public  User  getUserInfo(@Param("userNum")String userNum);
+	
+	
+	
 
 }

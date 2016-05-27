@@ -1,6 +1,7 @@
 package com.gongdan.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class TaskParticipator implements Serializable{
 	
@@ -20,6 +21,8 @@ public class TaskParticipator implements Serializable{
 	private String startTime;
 	
 	private String endTime;
+	
+	private List<TaskParticipator>  processRecords;
 
 	public Long getId() {
 		return id;
@@ -68,9 +71,13 @@ public class TaskParticipator implements Serializable{
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
-	
-	
-	
-	
 
+	public List<TaskParticipator> getProcessRecords() {
+		return processRecords;
+	}
+
+	public void setProcessRecords(List<TaskParticipator> processRecords) {
+		this.processRecords = processRecords;
+	}
+	
 }

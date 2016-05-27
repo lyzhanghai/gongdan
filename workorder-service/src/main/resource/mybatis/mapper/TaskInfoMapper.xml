@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gongdan.dao.UserDao">
+
+	<resultMap type="User" id="UserDetailMap">
+		<id property="id" column="id" />
+		<result property="userNum" column="userNum" />
+		<result property="userPwd" column="userPwd" />
+		<result property="userName" column="userName" />
+		<result property="locationId" column="locationId" />
+		<result property="userType" column="userType" />
+		<result property="status" column="status" />
+	         <!--association:用于映射关联查询单个对象的信息
+             property:要将关联查询的用户信息映射到Orders中那个属性-->
+         <association property="locationInfo" javaType="LocationInfo">
+             <!-- id:关联查询用户的唯一标识 
+                 column:指定唯一标识用户信息的列
+                 property:映射到user的那个属性
+             -->
+             <id column="location_id" property="locationId"/>
+             <result column="locationName" property="locationName"/>
+         </association>
+	</resultMap>
+
+
+
+
+	<select id="getUserInfo" parameterType="java.lang.String"
+		resultType="User">
+
+		select * from t_gd_user
+		where user_number =#{userNum}
+	</select>
+
+	<select id="getUserDetailInfo" parameterType="java.lang.String"
+		resultType="User">
+
+		SELECT
+		tgu.id id,
+		tgu.user_number userNum,
+		tgu.user_pwd userPwd,
+		tgu.user_name userName,
+		tgu.location_id locationId,
+		tgu.user_type userType,
+		tgu.status status,
+		tgl.location_name  locationName
+		FROM t_gd_user tgu,t_gd_location tgl
+		WHERE tgu.location_id = tgl.id
+		AND
+		tgu.user_number =#{userNum}
+
+	</select>
+
+
+
+</mapper>

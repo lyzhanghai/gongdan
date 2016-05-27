@@ -15,8 +15,14 @@
         <setting name="defaultStatementTimeout" value="25000"/>
     </settings>
     <typeAliases>  
-        <typeAlias alias="User" type="com.gongdan.entity.User"/>  
+        <typeAlias alias="User" type="com.gongdan.entity.User"/>
+        <typeAlias alias="LocationInfo" type="com.gongdan.base.entity.LocationInfo"/>  
     </typeAliases>  
+    
+    <plugins>
+        <plugin interceptor="com.gongdan.common.mybatis.PaginationInterceptor"/>
+    </plugins>
+    
     <mappers>  
         <mapper resource="mybatis/mapper/UserMapper.xml" />  
     </mappers>  

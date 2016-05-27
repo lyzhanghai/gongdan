@@ -1,4 +1,4 @@
-package com.gongdan.mqtt;
+package com.gongdan.common.mqtt;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
