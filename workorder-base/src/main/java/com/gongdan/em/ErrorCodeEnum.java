@@ -1,6 +1,6 @@
 package com.gongdan.em;
 
-public enum ErrorCode {
+public enum ErrorCodeEnum {
 
 	 	SUCCESS(0,"成功"),FAIL(1,"系统异常");
 	 	
@@ -10,7 +10,7 @@ public enum ErrorCode {
 
 	 	
 	 	
-		private ErrorCode(int code, String msg) {
+		private ErrorCodeEnum(int code, String msg) {
 			this.code = code;
 			this.msg = msg;
 		}
