@@ -16,7 +16,7 @@
     </settings>
     <typeAliases>  
         <typeAlias alias="User" type="com.gongdan.entity.User"/>
-        <typeAlias alias="LocationInfo" type="com.gongdan.base.entity.LocationInfo"/>  
+        <typeAlias alias="LocationInfo" type="com.gongdan.entity.LocationInfo"/>  
     </typeAliases>  
     
     <plugins>

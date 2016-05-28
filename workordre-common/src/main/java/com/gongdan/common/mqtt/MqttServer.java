@@ -7,22 +7,21 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 import org.eclipse.paho.client.mqttv3.MqttTopic;
+import org.eclipse.paho.client.mqttv3.internal.ClientComms;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.springframework.beans.factory.annotation.Value;
 
 public class MqttServer {
 
-	@Value("mqtt.host")
-	public  String HOST ;
+	public  String HOST ="tcp://120.24.215.212" ;
 	
-	public static final String TOPIC = "toclient/124";
-	public static final String TOPIC125 = "toclient/125";
 	private static final String clientid = "server";
 
 	private static MqttClient client;
 	private MqttTopic topic;
-	private String userName = "admin";
-	private String passWord = "password";
+	
+	private String userName = "tms";
+	private String passWord = "tms";
 	private MqttMessage message;
 
 	
@@ -60,6 +59,13 @@ public class MqttServer {
 	public void publish(MqttTopic topic, MqttMessage message) throws MqttPersistenceException, MqttException {
 		MqttDeliveryToken token = topic.publish(message);
 		token.waitForCompletion();
+	}
+	
+	public static void main(String[] args) throws MqttException {
+		MqttServer ms = new MqttServer();
+		 MqttTopic topic =ms.getClient().getTopic("test");
+		MqttMessage msg = new MqttMessage();
+		ms.publish(topic, msg);
 	}
 
 }

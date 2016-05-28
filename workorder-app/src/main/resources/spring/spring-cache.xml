@@ -14,11 +14,10 @@
     <context:component-scan base-package="com.gongdan.redis">
     </context:component-scan>
     <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
-        <property name="maxActive" value="${redis.maxActive}" />
         <property name="maxIdle" value="${redis.maxIdle}" />
-        <property name="maxWait" value="${redismaxWait}" />
-        <property name="testOnBorrow" value="${redis.testOnBorrow}true"/>
-        <property name="testOnReturn" value="${redis.testOnReturn}true"/>
+        <property name="maxTotal" value="${redis.maxTotal}" />
+        <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
+        <property name="testOnReturn" value="${redis.testOnReturn}"/>
         <!-- <property name="testWhileIdle" value="true"/> -->
     </bean>
 
