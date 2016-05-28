@@ -8,10 +8,13 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.MqttPersistenceException;
 import org.eclipse.paho.client.mqttv3.MqttTopic;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+import org.springframework.beans.factory.annotation.Value;
 
 public class MqttServer {
 
-	public static final String HOST = "tcp://192.168.1.3:61613";
+	@Value("mqtt.host")
+	public  String HOST ;
+	
 	public static final String TOPIC = "toclient/124";
 	public static final String TOPIC125 = "toclient/125";
 	private static final String clientid = "server";
