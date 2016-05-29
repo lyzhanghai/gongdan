@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gongdan.service.dao.SysConfigDao">
+
+
+
+
+
+	<select id="querySysConfigInfo" resultType="SysConfigInfo">
+
+		SELECT
+		t.id id,
+		t.config_key configKey,
+		t.config_value configValue,
+		t.config_type configType,
+		t.config_desc configDesc,
+		t.update_time updateTime
+
+		FROM t_gd_sys_config t
+		
+		WHERE t.config_key =#{configKey}
+		AND t.config_type =#{configType}
+	</select>
+
+	<select id="querySysConfigInfoList" parameterType="java.lang.Integer"
+		resultType="SysConfigInfo">
+		SELECT
+		t.id id,
+		t.config_key configKey,
+		t.config_value configValue,
+		t.config_type configType,
+		t.config_desc configDesc,
+		t.update_time updateTime
+
+		FROM t_gd_sys_config t
+		WHERE  t.config_type =#{configType}
+
+	</select>
+
+
+
+</mapper>

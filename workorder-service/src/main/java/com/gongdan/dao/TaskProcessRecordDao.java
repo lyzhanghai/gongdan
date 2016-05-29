@@ -1,6 +1,6 @@
 package com.gongdan.dao;
 
-import com.gongdan.entity.TaskProcessRecord;
+import com.gongdan.common.entity.TaskProcessRecord;
 
 public interface TaskProcessRecordDao {
 	

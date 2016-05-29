@@ -30,6 +30,11 @@
   			<artifactId>workorder-interface</artifactId>
 			<version>${workorder.version}</version>
     	</dependency>
+    	<dependency>
+     		<groupId>com.workorder</groupId>
+  			<artifactId>workordre-common</artifactId>
+			<version>${workorder.version}</version>
+    	</dependency>
   		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>

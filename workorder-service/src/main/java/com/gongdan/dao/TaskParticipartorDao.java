@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.gongdan.entity.TaskParticipator;
+import com.gongdan.common.entity.TaskParticipator;
 
 @Repository
 public interface TaskParticipartorDao {

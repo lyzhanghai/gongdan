@@ -11,6 +11,14 @@ import org.eclipse.paho.client.mqttv3.internal.ClientComms;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.springframework.beans.factory.annotation.Value;
 
+/**
+ * mqtt.username=tms
+mqtt.password=tms
+mqtt.host=tcp://120.24.215.212:61613
+
+ * @author Administrator
+ *
+ */
 public class MqttServer {
 
 	public  String HOST ="tcp://120.24.215.212" ;
@@ -24,6 +32,7 @@ public class MqttServer {
 	private String passWord = "tms";
 	private MqttMessage message;
 
+	
 	
 	public static MqttClient getClient(){
 		
