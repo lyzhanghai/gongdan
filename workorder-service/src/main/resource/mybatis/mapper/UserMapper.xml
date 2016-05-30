@@ -28,12 +28,20 @@
 	<select id="getUserInfo" parameterType="java.lang.String"
 		resultType="User">
 
-		select * from t_gd_user
-		where user_number =#{userNum}
+			SELECT
+		tgu.id id,
+		tgu.user_number userNum,
+		tgu.user_pwd userPwd,
+		tgu.user_name userName,
+		tgu.location_id locationId,
+		tgu.user_type userType,
+		tgu.status status
+		FROM t_gd_user tgu
+		where tgu.user_number =#{userNum}
 	</select>
 
 	<select id="getUserDetailInfo" parameterType="java.lang.String"
-		resultType="User">
+		resultMap="UserDetailMap">
 
 		SELECT
 		tgu.id id,
@@ -52,5 +60,23 @@
 	</select>
 
 
+	<update id="updateUserInfo" parameterType="User">
+	UPDATE t_gd_user
+	<set>
+	<if test="userPwd !=null">
+	user_pwd =#{userPwd},
+	</if>
+	<if test="userName != null">
+	user_name =#{userName},
+	</if>
+	<if test="status != null">
+	status =#{status]
+	</if>
+	
+	</set>
+	
+	WHERE id=#{id}
+	
+	</update>
 
 </mapper>

@@ -50,7 +50,7 @@
 	
 	
 		<!-- 后台管理默认的异常处理器 -->
-	<bean id="defaultApiHandlerExceptionResolver" class="com.pudonglib.common.web.handler.DefaultMvcHandlerExceptionResolver">
+	<bean id="defaultApiHandlerExceptionResolver" class="com.gongdan.common.exceptionhandle.DefaultMvcHandlerExceptionResolver">
 		<property name="defaultExceptionView" value="common/error/500"/>
 	</bean>
 	

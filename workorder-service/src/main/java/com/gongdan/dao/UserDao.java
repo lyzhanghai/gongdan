@@ -11,6 +11,10 @@ public interface UserDao {
 	public  User  getUserInfo(@Param("userNum")String userNum);
 	
 	
+	public  User  getUserDetailInfo(@Param("userNum")String userNum);
+	
+	
+	
 	public  void  updateUserInfo(User user);
 
 }

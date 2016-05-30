@@ -1,5 +1,8 @@
 package com.gongdan.app.web;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -9,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.gongdan.common.em.ErrorCodeEnum;
+import com.gongdan.common.em.SysConfigEnum;
+import com.gongdan.common.entity.SysConfigInfo;
 import com.gongdan.common.entity.User;
+import com.gongdan.service.SysConfigService;
 import com.gongdan.service.UserService;
 import com.gongdan.common.support.Result;
 
@@ -20,16 +26,36 @@ public class UserController {
 	@Resource(name="userServiceImpl")
 	private UserService userService;
 	
+	
+	@Resource(name="sysConfigServiceImpl")
+	private SysConfigService configService;
+	
 	@RequestMapping("login")
 	@ResponseBody
 	public Object doUserLogin(@RequestParam("userNum")String userNum,@RequestParam("psw")String password,@RequestParam("version")String version){
 		
+		
+		SysConfigInfo versionConfig = configService.queryConfigByTypeAndKey(SysConfigEnum.APP_VERSION.getType(), SysConfigEnum.APP_VERSION.getKey());
 		Result<Object> result = new  Result<Object>();
-		User user = userService.doUserLogin(userNum,password);
+		if(versionConfig != null && versionConfig.getConfigValue().equals(version)){
+			
+			User user = userService.doUserLogin(userNum,password);
+			result.setResultCode(ErrorCodeEnum.SUCCESS.getCode());
+			result.setResultMsg("成功");
+			
+			Map<String,Object> resultMap = new HashMap<String,Object>();
+			resultMap.put("user", user);
+			resultMap.put("mqttsSerevers", configService.queryConfigByTypeAndKey(SysConfigEnum.MQTT.getType(), SysConfigEnum.MQTT.getKey()));
+			result.setResultData(resultMap);
+		}else{
+			
+			result.setResultCode(ErrorCodeEnum.NEED_TO_UPDATE.getCode());
+			result.setResultMsg("当前版本需要升级！");
+			
+		}
+		
+		
 	
-		result.setResultCode(ErrorCodeEnum.SUCCESS.getCode());
-		result.setResultMsg("成功");
-		result.setResultData(user);
 		return result;
 	}
 
