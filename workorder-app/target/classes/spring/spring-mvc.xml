@@ -48,6 +48,15 @@
 		</property>
 	</bean>
 	
+	
+		<!-- 后台管理默认的异常处理器 -->
+	<bean id="defaultApiHandlerExceptionResolver" class="com.gongdan.common.exceptionhandle.DefaultMvcHandlerExceptionResolver">
+		<property name="defaultExceptionView" value="common/error/500"/>
+	</bean>
+	
+	
+	
+	
 	<!-- 扫描@Controller控制器类注解 -->
 	<context:component-scan base-package="com.gongdan" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>

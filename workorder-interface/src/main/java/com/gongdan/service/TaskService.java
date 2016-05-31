@@ -1,24 +1,12 @@
-package com.gongdan.dao;
+package com.gongdan.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.gongdan.common.entity.TaskInfo;
-import com.gongdan.common.support.Pager;
 
-@Repository
-public interface TaskInfoDao {
+public interface TaskService {
+
 	
-	/**
-	 *  分页查询
-	 * @param quertyTime
-	 * @param type
-	 * @param pager
-	 * @return
-	 */
-	public List<TaskInfo>  queryTaskInfoList(String quertyTime,Integer type,Long taskTypeId,Pager pager);
-
 	/**
 	 * 根据任务类型获取任务列表
 	 * @param queryTime,
@@ -41,12 +29,32 @@ public interface TaskInfoDao {
 	public List<TaskInfo> queryTaskListByUserNum(String queryTime,Integer flag,String userNum,Integer type);
 	
 	
+	/**
+	 * 创建任务
+	 * @param userId
+	 * @param taskDesc
+	 * @param taskTypeId
+	 * @return
+	 */
+	public TaskInfo createTaskInfo(Long userId,String taskDesc,Long taskTypeId);
 	
-	public TaskInfo getTaskInfo(Long taskId);
+	
+	/**
+	 * 更新任务
+	 * @param taskId
+	 * @param userIds
+	 */
+	public void updateTask(Long taskId,List<Long>userIds,Integer taskStatus);
+
 	
 	
-	public Long createTask(TaskInfo info);
-	
-	
-	public void updateTask(TaskInfo info);
-}
+	/**
+	 * 获取任务详情
+	 * @param taskId
+	 * @return
+	 */
+	public TaskInfo queryTaskInfo(Long taskId);
+	}
+
+
+

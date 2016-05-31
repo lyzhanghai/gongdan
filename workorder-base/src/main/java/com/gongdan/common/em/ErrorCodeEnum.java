@@ -5,6 +5,7 @@ public enum ErrorCodeEnum {
 	 	SUCCESS("0","成功"),
 	 	USER_NOT_EXIST("1000","用户不存在"),
 	 	USER_PWD_ERROR("1001","用户密码错误"),
+	 	NEED_TO_UPDATE("5000","版本需要更新"),
 		FAIL("-1","系统异常")
 	 	;
 	 	

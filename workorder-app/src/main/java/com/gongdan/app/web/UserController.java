@@ -22,43 +22,53 @@ import com.gongdan.common.support.Result;
 @Controller
 @RequestMapping("/user/")
 public class UserController {
-	
-	@Resource(name="userServiceImpl")
+
+	@Resource(name = "userServiceImpl")
 	private UserService userService;
-	
-	
-	@Resource(name="sysConfigServiceImpl")
+
+	@Resource(name = "sysConfigServiceImpl")
 	private SysConfigService configService;
-	
+
 	@RequestMapping("login")
 	@ResponseBody
-	public Object doUserLogin(@RequestParam("userNum")String userNum,@RequestParam("psw")String password,@RequestParam("version")String version){
-		
-		
-		SysConfigInfo versionConfig = configService.queryConfigByTypeAndKey(SysConfigEnum.APP_VERSION.getType(), SysConfigEnum.APP_VERSION.getKey());
-		Result<Object> result = new  Result<Object>();
-		if(versionConfig != null && versionConfig.getConfigValue().equals(version)){
-			
-			User user = userService.doUserLogin(userNum,password);
+	public Object doUserLogin(@RequestParam("userNum") String userNum, @RequestParam("psw") String password,
+			@RequestParam("version") String version) {
+
+		SysConfigInfo versionConfig = configService.queryConfigByTypeAndKey(SysConfigEnum.APP_VERSION.getType(),
+				SysConfigEnum.APP_VERSION.getKey());
+		Result<Object> result = new Result<Object>();
+		if (versionConfig != null && versionConfig.getConfigValue().equals(version)) {
+
+			User user = userService.doUserLogin(userNum, password);
 			result.setResultCode(ErrorCodeEnum.SUCCESS.getCode());
 			result.setResultMsg("成功");
-			
-			Map<String,Object> resultMap = new HashMap<String,Object>();
+
+			Map<String, Object> resultMap = new HashMap<String, Object>();
 			resultMap.put("user", user);
-			resultMap.put("mqttsSerevers", configService.queryConfigByTypeAndKey(SysConfigEnum.MQTT.getType(), SysConfigEnum.MQTT.getKey()));
+			resultMap.put("mqttsSerevers",
+					configService.queryConfigByTypeAndKey(SysConfigEnum.MQTT.getType(), SysConfigEnum.MQTT.getKey()));
 			result.setResultData(resultMap);
-		}else{
-			
+		} else {
+
 			result.setResultCode(ErrorCodeEnum.NEED_TO_UPDATE.getCode());
 			result.setResultMsg("当前版本需要升级！");
-			
+
 		}
-		
-		
-	
+
 		return result;
 	}
 
-	
-	
+	@RequestMapping("change")
+	@ResponseBody
+	public Object changePwd(@RequestParam("userNum") String userNum, @RequestParam("oldPwd") String oldPwd,
+			@RequestParam("newPwd") String newPwd) {
+
+		Result<Object> result = new Result<Object>();
+
+		userService.changePwd(userNum, oldPwd, newPwd);
+		result.setResultCode(ErrorCodeEnum.SUCCESS.getCode());
+		result.setResultMsg("成功");
+
+		return result;
+	}
 }

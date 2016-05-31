@@ -31,6 +31,25 @@ public class TaskInfo implements Serializable {
 	
 	private List<TaskParticipator> participators;
 	
+	
+	
+	
+	
+	
+	public TaskInfo() {
+		super();
+	}
+
+	
+	
+	public TaskInfo(Long taskId, Integer taskStatus) {
+		super();
+		this.taskId = taskId;
+		this.taskStatus = taskStatus;
+	}
+
+
+
 	public Long getTaskId() {
 		return taskId;
 	}

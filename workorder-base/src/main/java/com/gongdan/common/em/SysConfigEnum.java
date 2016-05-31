@@ -2,7 +2,8 @@ package com.gongdan.common.em;
 
 public enum SysConfigEnum {
 	
-	MQTT("MQTT_SERVER", 1, "mqtt服务配置");
+	MQTT("MQTT_SERVER", 1, "mqtt服务配置"),
+	APP_VERSION("APP_VERSION",2,"APP可用版本！");
 
 	private String key;
 

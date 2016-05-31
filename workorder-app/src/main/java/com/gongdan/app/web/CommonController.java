@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/common/")
-public interface CommonController {
+public class CommonController {
 
 }
