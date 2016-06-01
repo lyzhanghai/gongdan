@@ -9,7 +9,9 @@ public class TaskInfo implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	private Long taskId;
+	
 	private Long taskTypeId;
 
 	private Long createUserId;
@@ -23,6 +25,13 @@ public class TaskInfo implements Serializable {
 	private String endTime;
 
 	private String updateTime;
+	
+	
+	
+	//以下为辅助字段
+	
+	
+	private User user;
 	
 	
 	
@@ -113,6 +122,20 @@ public class TaskInfo implements Serializable {
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
 	}
+	
+	
+
+	public User getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
 
 	public List<TaskExtraInfo> getExtraInfos() {
 		return extraInfos;

@@ -26,7 +26,20 @@ public interface TaskService {
 	 * @param type 1:表示自己创建的任务，2:表示自己接受的任务
 	 * @return
 	 */
-	public List<TaskInfo> queryTaskListByUserNum(String queryTime,Integer flag,String userNum,Integer type);
+	public List<TaskInfo> queryTaskListByUserNum(String queryTime,Integer flag,Long userId,Integer type,Integer pageSize);
+	
+	/**
+	 * 获取自己的任务列表
+	 * 
+	 * @param queryTime
+	 * @param flag 1上拉 2:下拉刷新
+	 * @param userNum 工号
+	 * @param type 1:表示自己创建的任务，2:表示自己接受的任务
+	 * @return
+	 */
+	public Integer countTaskListByUserNum(String queryTime,Integer flag,Long userId,Integer type);
+	
+
 	
 	
 	/**

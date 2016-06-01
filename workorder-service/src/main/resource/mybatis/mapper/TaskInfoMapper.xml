@@ -2,5 +2,135 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gongdan.dao.TaskInfoDao">
 
+	<resultMap type="taskInfo" id="taskInfoMap">
+		<id column="taskId" property="taskId" />
+		<result column="taskTypeId" property="taskTypeId" />
+		<result column="createUserId" property="createUserId" />
+		<result column="createtime" property="createTime" />
+		<result column="taskDesc" property="taskStatus" />
+		<result column="startTime" property="startTime" />
+		<result column="endTime" property="endTime" />
+		<!-- 配置映射的关联用户信息 -->
+		<!--association:用于映射关联查询单个对象的信息 property:要将关联查询的用户信息映射到Orders中那个属性 -->
+		<association property="user" javaType="User">
+			<!-- id:关联查询用户的唯一标识 column:指定唯一标识用户信息的列 property:映射到user的那个属性 -->
+			<id column="userId" property="userId" />
+			<result column="userName" property="userName" />
+		</association>
+
+		<collection property="extraInfos" ofType="TaskExtraInfo"
+			column="task_id">
+			<id column="id" property="id" />
+			<result column="taskId" property="taskId" />
+			<result column="option_key" property="optionKey" />
+			<result column="option_value" property="optionValue" />
+		</collection>
+	</resultMap>
+
+
+	<insert id="createTask" parameterType="TaskInfo" statementType="PREPARED"
+		useGeneratedKeys="true" keyProperty="taskId">
+		INSERT INTO
+		t_gd_task_info
+		(task_type_id,
+		create_user_id,
+		task_desc,,
+		task_status,
+		statrt_time,
+		update_time)
+		VALUES
+		(
+		#{taskTypeId},
+		#{createUserId},
+		#{taskDesc},
+		#{taskStatus},
+		#{startTime},
+		NOW()
+		)
+	</insert>
+
+	<update id="updateTask" parameterType="TaskInfo">
+		UPDATE t_gd_task_info
+		update_time =Now(),
+		<set>
+			<if test="taskStatus >= 0">
+				task_status=#{taskStatus},
+			</if>
+			<if test="endTime != null">
+				end_time=#{endTime},
+			</if>
+
+		</set>
+		WHERE task_id =#{taskId}
+
+
+	</update>
+
+	<select id="getTaskInfo" parameterType="java.Lang.Long"
+		resultType="TaskInfo">
+
+		SELECT
+		task_id taskId,
+		task_type_id taskTypeId,
+		create_user_id createUserId,
+		task_desc taskDesc,
+		task_status taskStatus,
+		statrt_time startTime,
+		end_time endTime,
+		update_time update_time
+		FROM
+		t_gd_task_info
+		WHERE task_id =#{taskId}
+
+	</select>
+
+	<select id="queryTaskInfoList" resultMap="taskInfoMap">
+		SELECT
+		tgti.task_id taskId,
+		tgti.task_type_id taskTypeId,
+		tgti.create_user_id createUserId,
+		tgti.task_desc taskDesc,
+		tgti.task_status taskStatus,
+		tgti.statrt_time startTime,
+		tgti.end_time endTime,
+		tgti.update_time update_time,
+		tgu.user_id userId,
+		tgu.user_name userName,
+		tgte.option_key,
+		tgte.option_value
+		FROM t_gd_task_info tgti INNER JOIN t_gd_user tgu
+		ON(tgti.create_user_id = tgu.user_id)
+		LEFT JOIN t_gd_task_extra tgte ON(tgti.task_id = tgte.task_id)
+		WHERE tgti.crreate_user_id =
+		#{userId}
+		<if test="flag == 1">
+		 <![CDATA[#{queryTime} > create_time ]]>
+		</if>
+		<if test="flag == 2">
+		 <![CDATA[#{queryTime} < create_time ]]>
+
+		</if>
+
+		<if test=""></if>
+		LIMIT 0,#{pageSize}
+
+	</select>
+
+	<select id="queryTaskInfoList_count" resultType="java.Lang.Integer">
+		SELECT
+		COUNT(*)
+		FROM t_gd_task_info tgti INNER JOIN t_gd_user tgu
+		ON(tgti.create_user_id = tgu.user_id)
+		WHERE tgti.crreate_user_id =
+		#{userId}
+		<if test="flag == 1">
+		 <![CDATA[#{queryTime} > create_time ]]>
+		</if>
+		<if test="flag == 2">
+		 <![CDATA[#{queryTime} < create_time ]]>
+
+		</if>
+
+	</select>
 
 </mapper>

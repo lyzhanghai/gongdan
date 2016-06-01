@@ -17,7 +17,12 @@
     <typeAliases>  
         <typeAlias alias="User" type="com.gongdan.common.entity.User"/>
         <typeAlias alias="LocationInfo" type="com.gongdan.common.entity.LocationInfo"/>
-        <typeAlias alias="SysConfigInfo" type="com.gongdan.common.entity.SysConfigInfo"/>  
+        <typeAlias alias="SysConfigInfo" type="com.gongdan.common.entity.SysConfigInfo"/>
+        <typeAlias alias="TaskInfo" type="com.gongdan.common.entity.TaskInfo"/>  
+        <typeAlias alias="TaskExtraInfo" type="com.gongdan.common.entity.TaskExtraInfo"/> 
+        <typeAlias alias="TaskParticipator" type="com.gongdan.common.entity.TaskParticipator"/> 
+        <typeAlias alias="TaskProcessRecord" type="com.gongdan.common.entity.TaskProcessRecord"/> 
+        <typeAlias alias="ComponentInfo" type="com.gongdan.common.entity.ComponentInfo"/>  
     </typeAliases>  
     
     <plugins>

@@ -31,16 +31,17 @@ public class TaskServieImpl implements TaskService{
 	private TaskProcessRecordDao  recordDao;
 	
 	
+
 	@Override
-	public List<TaskInfo> queryTaskListByType(String queryTime, Integer flag, List<Integer> taskType) {
-		return taskInfoDao.queryTaskListByType(queryTime, flag, taskType);
+	public List<TaskInfo> queryTaskListByUserNum(String queryTime,Integer flag,Long userId,Integer type,Integer pageSize) {
+		return taskInfoDao.queryTaskInfoList(queryTime, flag, userId, type,pageSize);
 	}
 
 	@Override
-	public List<TaskInfo> queryTaskListByUserNum(String queryTime, Integer flag, String userNum, Integer type) {
-		return taskInfoDao.queryTaskListByUserNum(queryTime, flag, userNum, type);
+	public Integer countTaskListByUserNum(String queryTime, Integer flag, Long userId, Integer type) {
+		return taskInfoDao.queryTaskInfoList_count(queryTime, flag, userId, type);
 	}
-
+	
 	@Override
 	@Transactional
 	public TaskInfo createTaskInfo(Long userId, String taskDesc,Long taskTypeId) {
@@ -105,5 +106,13 @@ public class TaskServieImpl implements TaskService{
 	public TaskInfo queryTaskInfo(Long taskId) {
 		return taskInfoDao.getTaskInfo(taskId);
 	}
+
+	@Override
+	public List<TaskInfo> queryTaskListByType(String queryTime, Integer flag, List<Integer> taskType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }

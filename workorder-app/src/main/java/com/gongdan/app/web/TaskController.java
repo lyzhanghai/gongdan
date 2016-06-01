@@ -1,7 +1,9 @@
 package com.gongdan.app.web;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -36,14 +38,32 @@ public class TaskController {
 	
 	
 	
-	
+	/**
+	 * 
+	 * @param userId
+	 * @param type  上拉下拉同一个接口，该字段区分
+	 * @param flag
+	 * @param pageSize
+	 * @param queryTime
+	 * @param mine
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("list")
 	@ResponseBody
-	public Object queryTaskInfoList(@RequestParam("userNum") String userNum, @RequestParam("flag") Integer flag,
+	public Object queryTaskInfoList(@RequestParam("userId") Long userId, @RequestParam("type") Integer type, @RequestParam("flag") Integer flag, @RequestParam("pageSize") Integer pageSize,
 			@RequestParam("queryTime") String queryTime,@RequestParam(value="mine",required=false)String mine,HttpServletRequest request) {
 
-		User user = userService.getUserInfo(userNum);
 		Result<Object> result = new Result<Object>();
+		List<TaskInfo> taskList = taskService.queryTaskListByUserNum(queryTime, flag, userId, type, pageSize);
+		Integer count = taskService.countTaskListByUserNum(queryTime, flag, userId, type);
+		Map<String,Object> dataMap = new HashMap<String,Object>();
+		dataMap.put("hasNextPage", false);
+		if(count > pageSize){
+			dataMap.put("hasNextPage", true);
+			
+		}
+		dataMap.put("taskList", taskList);
 		result.setResultCode(ErrorCodeEnum.SUCCESS.getCode());
 		result.setResultMsg("成功");
 
@@ -53,12 +73,11 @@ public class TaskController {
 	
 	@RequestMapping("create")
 	@ResponseBody
-	public Object createTask(@RequestParam("userNum") String userNum, @RequestParam("taskTypeId") Long taskTypeId,
+	public Object createTask(@RequestParam("userId") Long userId, @RequestParam("taskTypeId") Long taskTypeId,
 			@RequestParam("taskDesc")String taskDesc,
 			HttpServletRequest request) {
-		User user = userService.getUserInfo(userNum);
 		Result<Object> result = new Result<Object>();
-		TaskInfo info= taskService.createTaskInfo(user.getUserId(), taskDesc, taskTypeId);
+		TaskInfo info= taskService.createTaskInfo(userId, taskDesc, taskTypeId);
 		result.setResultCode(ErrorCodeEnum.SUCCESS.getCode());
 		result.setResultMsg("成功");
 		result.setResultData(info);
