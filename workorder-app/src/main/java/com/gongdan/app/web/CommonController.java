@@ -12,4 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/common/")
 public class CommonController {
 
+	
+	
 }

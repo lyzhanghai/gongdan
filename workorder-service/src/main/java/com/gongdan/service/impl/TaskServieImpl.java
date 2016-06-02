@@ -1,9 +1,10 @@
 package com.gongdan.service.impl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,6 @@ import com.gongdan.common.consts.TaskConts;
 import com.gongdan.common.em.TaskStatusEnum;
 import com.gongdan.common.entity.TaskInfo;
 import com.gongdan.common.entity.TaskParticipator;
-import com.gongdan.common.entity.TaskProcessRecord;
 import com.gongdan.common.utils.DateUtil;
 import com.gongdan.dao.TaskInfoDao;
 import com.gongdan.dao.TaskParticipartorDao;
@@ -46,7 +46,9 @@ public class TaskServieImpl implements TaskService{
 	@Transactional
 	public TaskInfo createTaskInfo(Long userId, String taskDesc,Long taskTypeId) {
 		TaskInfo task = new TaskInfo();
-		String nowTime =DateUtil.format(new Date());
+		Date nowDate = new Date();
+		
+		String nowTime =DateUtil.format(nowDate);
 		task.setStartTime(nowTime);
 		task.setTaskDesc(taskDesc);
 		task.setTaskStatus(TaskStatusEnum.START.getCode());
@@ -63,23 +65,22 @@ public class TaskServieImpl implements TaskService{
 		
 		participartorDao.createTaskParticipartor(participator);
 		
-		
-		TaskProcessRecord record = new TaskProcessRecord();
-		record.setCreateTime(nowTime);
-		record.setTaksId(task.getTaskId());
-		record.setTaskStatus(TaskStatusEnum.START.getCode());
+		Map<String,Object> recordMap = new HashMap<String, Object>();
+		recordMap.put("taskId", task.getTaskId());
+		recordMap.put("userId", userId);
+		recordMap.put("taskStatus", TaskStatusEnum.START.getCode());
 		//record.setProcessDesc(TaskStatusEnum.START.getDesc());
-		record.setUserId(userId);
-		recordDao.createTaskProcessRecord(record);
+		recordMap.put("tableName", "t_gd_task_process_record"+DateUtil.format(new Date(), "MM"));
+		
+		recordDao.createTaskProcessRecord(recordMap);
 		return task;
 	}
 
 	@Override
 	@Transactional
 	public void updateTask(Long taskId, List<Long> userIds,Integer status) {
-		
-		
-		String nowTime =DateUtil.format(new Date());
+		Date nowDate = new Date();
+		String nowTime =DateUtil.format(nowDate);
 		taskInfoDao.updateTask(new TaskInfo(taskId,status));
 		for (Long id : userIds) {
 			TaskParticipator participator = new TaskParticipator();
@@ -90,14 +91,15 @@ public class TaskServieImpl implements TaskService{
 			
 			participartorDao.createTaskParticipartor(participator);
 			
-			TaskProcessRecord record = new TaskProcessRecord();
-			record.setCreateTime(nowTime);
-			record.setTaksId(taskId);
-			record.setTaskStatus(status);
-			record.setProcessDesc(TaskConts.taskStatusMap.get(status));
 					
+
+			Map<String,Object> recordMap = new HashMap<String, Object>();
+			recordMap.put("taskId", taskId);
+			recordMap.put("userId", id);
+			recordMap.put("taskStatus", TaskConts.taskStatusMap.get(status));
+			recordMap.put("tableName", "t_gd_task_process_record"+DateUtil.format(new Date(), "MM"));
 			
-			recordDao.createTaskProcessRecord(record);
+			recordDao.createTaskProcessRecord(recordMap);
 		}
 		
 	}
@@ -112,7 +114,6 @@ public class TaskServieImpl implements TaskService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 
 }

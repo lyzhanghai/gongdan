@@ -2,5 +2,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gongdan.dao.TaskParticipartorDao">
 
+	<insert id="queryTaskParticipartorList" parameterType="TaskParticipator">
+		INSERT
+		INTO t_gd_task_participator
+		(taks_id,
+		user_id,
+		user_type,
+		start_time)
 
+		VALUES
+		(#{taskId},
+		#{userId},
+		#{userType},
+		#{startTime})
+
+	</insert>
+
+
+	<update id="updateTaskParticipartor" parameterType="TaskParticipator">
+
+		UPDATE t_gd_task_participator
+		SET end_time = #{endTime}
+		WHERE user_id =#{userId}
+		AND task_id = #{taskId}
+
+
+	</update>
+
+
+
+	<select id="queryTaskParticipartorList" parameterType="java.Lang.Long">
+		SELCET
+		id,
+		task_id taskId,
+		user_id userId,
+		start_time startTime,
+		end_time endTime,
+		user_type userType
+
+		FROM t_gd_task_participator
+		WHERE task_id =#{taskId}
+
+
+	</select>
 </mapper>

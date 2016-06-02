@@ -2,5 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gongdan.dao.TaskProcessRecordDao">
 
+	<insert id="createTaskProcessRecord" parameterType="java.util.Map"
+		statementType="STATEMENT">
+
+		INSERT INTO ${tableName}(
+		task_id,
+		user_id,
+		create_time,
+		process_desc,
+		task_status
+		)
+		VALUES(${taskId},
+		${userId},
+		NOW(),
+		${processDesc},
+		${taskStatus}
+		)
+	</insert>
 
 </mapper>

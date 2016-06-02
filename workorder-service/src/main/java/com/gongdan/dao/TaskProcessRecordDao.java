@@ -1,8 +1,9 @@
 package com.gongdan.dao;
 
-import com.gongdan.common.entity.TaskProcessRecord;
+import java.util.Map;
+
 
 public interface TaskProcessRecordDao {
 	
-	public void createTaskProcessRecord(TaskProcessRecord record);
+	public void createTaskProcessRecord(Map<String,Object> paramMap);
 }
