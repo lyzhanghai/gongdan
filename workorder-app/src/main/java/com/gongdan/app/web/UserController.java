@@ -31,8 +31,8 @@ public class UserController {
 
 	@RequestMapping("login")
 	@ResponseBody
-	public Object doUserLogin(@RequestParam("userNum") String userNum, @RequestParam("psw") String password,
-			@RequestParam("version") String version) {
+	public Object doUserLogin(@RequestParam(value="userNum",required =false) String userNum, @RequestParam(value="psw",required =false) String password,
+			@RequestParam(value="version",required =false) String version) {
 
 		SysConfigInfo versionConfig = configService.queryConfigByTypeAndKey(SysConfigEnum.APP_VERSION.getType(),
 				SysConfigEnum.APP_VERSION.getKey());
@@ -67,6 +67,17 @@ public class UserController {
 
 		userService.changePwd(userNum, oldPwd, newPwd);
 		result.setResultCode(ErrorCodeEnum.SUCCESS.getCode());
+		result.setResultMsg("成功");
+
+		return result;
+	}
+	
+	@RequestMapping("test")
+	@ResponseBody
+	public Object test() {
+
+		Result<Object> result = new Result<Object>();
+
 		result.setResultMsg("成功");
 
 		return result;

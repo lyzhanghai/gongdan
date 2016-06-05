@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.gongdan.service.dao.SysConfigDao">
+<mapper namespace="com.gongdan.dao.SysConfigDao">
 
 
 
 
-
-	<select id="querySysConfigInfo" resultType="SysConfigInfo">
-
+	<select id="querySysConfigInfo" resultType="SysConfigInfo" >
 		SELECT
 		t.id id,
 		t.config_key configKey,

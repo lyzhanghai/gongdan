@@ -66,7 +66,7 @@
 
 	</update>
 
-	<select id="getTaskInfo" parameterType="java.Lang.Long"
+	<select id="getTaskInfo" parameterType="java.lang.Long"
 		resultType="TaskInfo">
 
 		SELECT
@@ -116,7 +116,7 @@
 
 	</select>
 
-	<select id="queryTaskInfoList_count" resultType="java.Lang.Integer">
+	<select id="queryTaskInfoList_count" resultType="java.lang.Integer">
 		SELECT
 		COUNT(*)
 		FROM t_gd_task_info tgti INNER JOIN t_gd_user tgu

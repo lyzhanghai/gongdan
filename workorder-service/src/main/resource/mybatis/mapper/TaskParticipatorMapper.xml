@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gongdan.dao.TaskParticipartorDao">
 
-	<insert id="queryTaskParticipartorList" parameterType="TaskParticipator">
+	<insert id="createTaskParticipartor" parameterType="TaskParticipator">
 		INSERT
 		INTO t_gd_task_participator
 		(taks_id,
@@ -31,7 +31,7 @@
 
 
 
-	<select id="queryTaskParticipartorList" parameterType="java.Lang.Long">
+	<select id="queryTaskParticipartorList" parameterType="java.lang.Long">
 		SELCET
 		id,
 		task_id taskId,

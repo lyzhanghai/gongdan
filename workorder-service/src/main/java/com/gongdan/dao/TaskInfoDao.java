@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.gongdan.common.entity.TaskInfo;
-import com.gongdan.common.support.Pager;
 
 @Repository
 public interface TaskInfoDao {

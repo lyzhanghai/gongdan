@@ -31,5 +31,8 @@
     
     <mappers>  
         <mapper resource="mybatis/mapper/UserMapper.xml" />  
+        <mapper resource="mybatis/mapper/TaskInfoMapper.xml" />  
+        <mapper resource="mybatis/mapper/TaskParticipatorMapper.xml" />  
+        <mapper resource="mybatis/mapper/SysConfigMapper.xml" />  
     </mappers>  
 </configuration> 
