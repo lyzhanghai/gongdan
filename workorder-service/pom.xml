@@ -5,7 +5,6 @@
 		<artifactId>workorder</artifactId>
 		<groupId>com.workorder</groupId>
 		<version>1.0.0</version>
-		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>workorder-service</artifactId>
 	<name>workorder-service</name>

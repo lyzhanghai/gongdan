@@ -4,7 +4,6 @@
     <artifactId>workorder</artifactId>
     <groupId>com.workorder</groupId>
    	<version>1.0.0</version>
-    <relativePath>..</relativePath>
   </parent>
   <artifactId>workorder-interface</artifactId>
   <name>workorder-interface</name>
