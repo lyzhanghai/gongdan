@@ -27,7 +27,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.workorder</groupId>
-			<artifactId>workordre-common</artifactId>
+			<artifactId>workorder-common</artifactId>
 			<version>${workorder.version}</version>
 		</dependency>
 		<dependency>
