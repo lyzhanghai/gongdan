@@ -382,10 +382,10 @@
 
 	<modules>
 		<module>workorder-base</module>
-		<module>workorder-common</module>
 		<module>workorder-service</module>
 		<module>workorder-app</module>
 		<module>workorder-interface</module>
 		<module>workorder-admin</module>
+		<module>workordre-common</module>
 	</modules>
 </project>
