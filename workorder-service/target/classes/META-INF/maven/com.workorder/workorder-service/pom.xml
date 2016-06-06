@@ -1,48 +1,55 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>workorder</artifactId>
-    <groupId>com.workorder</groupId>
-    <version>1.0.0</version>
-    <relativePath>..</relativePath>
-  </parent>
-  <artifactId>workorder-service</artifactId>
-  <name>workorder-service</name>
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  <dependencies>
-    	<dependency>
-     		<groupId>com.workorder</groupId>
-  			 <artifactId>workorder-base</artifactId>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>workorder</artifactId>
+		<groupId>com.workorder</groupId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>workorder-service</artifactId>
+	<name>workorder-service</name>
+	<build>
+	<finalName>workorder-service</finalName>
+		<plugins>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.workorder</groupId>
+			<artifactId>workorder-base</artifactId>
 			<version>${workorder.version}</version>
-    	</dependency>
- 	 	<dependency>
-     		<groupId>com.workorder</groupId>
-  			<artifactId>workorder-interface</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.workorder</groupId>
+			<artifactId>workorder-interface</artifactId>
 			<version>${workorder.version}</version>
-    	</dependency>
-  		<dependency>
+		</dependency>
+		<dependency>
+			<groupId>com.workorder</groupId>
+			<artifactId>workordre-common</artifactId>
+			<version>${workorder.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-		
-			<dependency>
-    			<groupId>org.mybatis</groupId>
-    			<artifactId>mybatis</artifactId>
-			</dependency>
-			
-			<dependency>
-    			<groupId>org.mybatis</groupId>
-   				<artifactId>mybatis-spring</artifactId>
-			</dependency>
-  </dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+	</dependencies>
 </project>

@@ -4,19 +4,13 @@
     <artifactId>workorder</artifactId>
     <groupId>com.workorder</groupId>
     <version>1.0.0</version>
-    <relativePath>..</relativePath>
   </parent>
   <artifactId>workorder-base</artifactId>
   <name>workorder-base</name>
   <build>
+  <finalName>workorder-base</finalName>
     <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
+  
 </project>

@@ -6,9 +6,10 @@
 		<groupId>com.workorder</groupId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>workordre-common</artifactId>
+	<artifactId>workorder-common</artifactId>
 	<name>workorder-common</name>
 	<build>
+	 <finalName>workorder-common</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
