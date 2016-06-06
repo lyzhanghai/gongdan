@@ -12,6 +12,7 @@
 	<finalName>workorder-service</finalName>
 		<plugins>
 		</plugins>
+		
 	</build>
 	<dependencies>
 		<dependency>
