@@ -1,0 +1,106 @@
+@CHARSET "UTF-8";
+.ztree * {
+	font-size: 13px;
+}
+.ztree li a {
+	padding: 3px 3px 3px 0;
+}
+.ztree li a:hover {
+	color: #000000;
+	text-decoration: none;
+	background-color: #DEDEDE;
+}
+.ztree li a.curSelectedNode {
+	border: 0 none;
+	color: #FFFFFF;
+	background-color: #009BF7;
+	padding-top: 3px;
+	height: 17px;
+	opacity: 1;
+}
+.ztree li ul.line { 
+	background-image: url(img/line-conn.png);
+}
+.ztree li span.button {
+	height: 18px;
+	width: 18px;
+}
+.ztree li span.button.switch {
+	width: 18px; 
+	height: 22px
+}
+.ztree li span.button.root_open {
+	background-position: center center;
+	background-image: url(img/root-open.png)
+}
+.ztree li span.button.root_close {
+	background-position: center center;
+	background-image: url(img/root-close.png)
+}
+.ztree li span.button.roots_open {
+	background-position: center center;
+	background-image: url(img/roots-open.png)
+}
+.ztree li span.button.roots_close {
+	background-position: center center;
+	background-image: url(img/roots-close.png)
+}
+.ztree li span.button.center_open {
+	background-position: center center;
+	background-image: url(img/center-open.png)
+}
+.ztree li span.button.center_close {
+	background-position: center center;
+	background-image: url(img/center-close.png)
+}
+.ztree li span.button.bottom_open {
+	background-position: center center;
+	background-image: url(img/bottom-open.png)
+}
+.ztree li span.button.bottom_close {
+	background-position: center center;
+	background-image: url(img/bottom-close.png)
+}
+.ztree li span.button.center_docu {
+	background-position: center center;
+	background-image: url(img/center-docu.png)
+}
+.ztree li span.button.bottom_docu {
+	background-position: center center;
+	background-image: url(img/bottom-docu.png)
+}
+.ztree li span.button.noline_open {
+	background-position: center center;
+	background-image: url(img/arrows.png);
+	background-position: -48px 0;
+}
+.ztree li span.button.noline_close {
+	background-position: center center;
+	background-image: url(img/arrows.png);
+	background-position: -32px 0;
+}
+.ztree li span.button.ico_open {
+	background-position: center center;
+	background-image: url(img/folder-open-blue-16.png);
+}
+.ztree li a.curSelectedNode span.button.ico_open {
+	background-image: url(img/folder-open-white-16.png);
+}
+.ztree li span.button.ico_close {
+	background-position: center center;
+	background-image: url(img/folder-blue-16.png);
+}
+.ztree li a.curSelectedNode span.button.ico_close {
+	background-image: url(img/folder-white-16.png);
+}
+.ztree li span.button.ico_docu {
+	background-position: center center;
+	background-image: url(img/leaf-blue-16.png);
+}
+.ztree li a.curSelectedNode span.button.ico_docu {
+	background-image: url(img/leaf-white-16.png);
+}
+.ztree li span.button.ico_loading {
+	background-position: center center;
+	background-image: url(img/loading.png);
+}

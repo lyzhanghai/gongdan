@@ -1,0 +1,188 @@
+.xupload-btn {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	position: relative;
+	cursor: pointer;
+	text-decoration: none;
+	border: 0 none;
+	outline: 0 none;
+	text-align: center;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	padding: 0 15px;
+	height: 24px;
+	vertical-align: middle;
+	color: #fff;
+	background-color: #27ae60;
+	border-radius: 1px;
+	-webkit-transition: all 0.25s ease 0s;
+	-moz-transition: all 0.25s ease 0s;
+	-o-transition: all 250ms ease 0s;
+	transition: all 0.25s ease 0s;
+}
+.xupload-btn:hover {
+	background-color: #2ecc71;
+	color: #fff;
+	text-decoration: none;
+}
+.xupload-btn, .xupload-btn label, .xupload-btn input[type=file] {
+	display: block;
+	height: 28px;
+	width: 140px;
+	padding: 0;
+	cursor: pointer;
+}
+.xupload-btn, .xupload-btn:hover {
+	text-decoration: none;
+}
+.xupload-btn label {
+	font-size: 14px;
+	padding: 0;
+	line-height: 27px;
+	text-align: center;
+}
+.xupload-btn input[type=file] {
+	height: 25px;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	
+	zoom: 1;
+	filter:alpha(opacity=0);  
+    -moz-opacity:0;
+    -khtml-opacity: 0;  
+    opacity: 0;
+}
+.xupload-list {
+    display: block;
+    position: relative;
+    padding: 5px 5px 5px 0;
+    margin: 0;
+}
+.xupload-list:before, .xupload-list:after {
+    content:"";
+    display:table;
+}
+.xupload-list:after {
+    clear:both;
+}
+.xupload-list .xupload-box {
+    display: inline-block;
+    position: relative;
+    float: left;
+    margin: 10px 10px 10px 0;
+}
+.xupload-list .xupload-box > a {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    color: #20beca;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: #fff;
+    border: 5px dashed #DFDFDF;
+    -webkit-transition: all 0.25s ease 0s;
+    -moz-transition: all 0.25s ease 0s;
+    -o-transition: all 250ms ease 0s;
+    transition: all 0.25s ease 0s;
+}
+.xupload-list .xupload-box > a:hover {
+    text-decoration: none;
+}
+.xupload-list .xupload-box > a > label, .xupload-list .xupload-box > a > h5 {
+    display: inline-block;
+    position: relative;
+    top: 45%;
+    width: 100%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 15px;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+.xupload-list .xupload-box > a > h5 {
+	height: 40px;
+	line-height: 20px;
+	top: auto;
+	bottom: 0;
+}
+.xupload-list .xupload-box > a > i {
+    font-style: normal;
+    display: block;
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    top: 5px;
+    right: 5px;
+    background: url(images/green/xupload-squareclose-bold-16.png) no-repeat scroll center center transparent;
+}
+
+.xupload-list .xupload-box .xupload-move {
+	display: block;
+	position: relative;
+	margin: 1px 0 0 0;
+	padding: 0;
+}
+.xupload-list .xupload-box .xupload-move:before, .xupload-list .xupload-box .xupload-move:after {
+    content:"";
+    display:table;
+}
+.xupload-list .xupload-box .xupload-move:after {
+    clear:both;
+}
+.xupload-list .xupload-box .xupload-move .xupload-move-left, .xupload-list .xupload-box .xupload-move .xupload-move-right {
+	text-decoration: none;
+	text-indent: -9999px;
+	width: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: scroll;
+	color: #fff;
+	height: 30px;
+	line-height: 30px;
+	background-color: #CCC;
+}
+.xupload-list .xupload-box .xupload-move .xupload-move-left {
+	float: left;
+	background-image: url(images/green/xupload-arrowhead-left-24.png);
+}
+.xupload-list .xupload-box .xupload-move .xupload-move-right {
+	float: right;
+	background-image: url(images/green/xupload-arrowhead-right-24.png);
+}
+.xupload-list .xupload-box > a.xupload-uploading {
+	height: 150px;
+	width: 150px;
+    background: url(images/green/xupload-loading-128.gif) no-repeat scroll center center #fff;
+}
+.xupload-list .xupload-box > a > img {
+	height: 150px;
+}
+.xupload-list .xupload-box > a:hover {
+    text-decoration: none;
+    color: #27ae60;
+    border-color: #27ae60;
+}
+.xupload-list .xupload-box > a > label {
+	color: #27ae60;
+}
+.xupload-list .xupload-box > a.xupload-error > label {
+    color: #d01;
+}
+.xupload-list .xupload-box > a:hover > i {
+    background-image: url(images/green/xupload-squareclose-bold-hover-16.png);
+}
+.xupload-list .xupload-box .xupload-move .xupload-move-left, .xupload-list .xupload-box .xupload-move .xupload-move-right {
+	color: #fff;
+	height: 30px;
+	line-height: 30px;
+	background-color: #27ae60;
+}
+.xupload-list .xupload-box .xupload-move .xupload-move-left:hover, .xupload-list .xupload-box .xupload-move .xupload-move-right:hover {
+	color: #fff;
+	text-decoration: none;
+	background-color: #2ecc71;
+}

@@ -11,7 +11,7 @@ import java.util.Locale;
 /**
  * 全局国际化资源文件获取工具类
  * 
- * @author	  	yanziqi
+ * @author	  	pengpeng
  * @date	  	2014年7月28日 下午9:28:22
  * @version  	1.0
  */

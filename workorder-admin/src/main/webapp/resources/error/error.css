@@ -1,0 +1,106 @@
+@CHARSET "UTF-8";
+.clearfix {
+	zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after{
+    clear:both;
+}
+.error-page-wrapper {
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	width: 95%;
+	padding: 25px 0;
+}
+.error-page {
+	display: block;
+	padding: 0 0 0 250px;
+}
+.error-page .error-page-left, .error-page .error-page-right {
+	display: inline-block;
+	position: relative;
+	float: left;
+}
+.error-page .error-page-left {
+	width: 250px;
+	margin-left: -250px;
+}
+.error-page .error-page-right {
+	width: 100%;
+	height: 180px;
+	font-family: 微软雅黑;
+	color: #c7254e;
+	padding: 15px;
+	background-color: #f9f2f4;
+	box-sizing: border-box;
+}
+.error-page .error-page-left .error-page-code {
+	display: block;
+	position: relative;
+	height: 180px;
+	width: 180px;
+	padding: 0 20px;
+	margin: 0;
+	background-color: #1abc9c;
+}
+.error-page .error-page-left .error-page-code h1, .error-page .error-page-left .error-page-code p {
+	color: #fff;
+	font-weight: bold;
+	font-family: comic sans ms;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: center;
+}
+.error-page .error-page-left .error-page-code h1 {
+	font-size: 66px;
+	line-height: 2.3em;
+    height: 110px;
+}
+.error-page .error-page-left .error-page-code p {
+	font-size: 22px;
+	height: 30px;
+	line-height: 1em;
+    word-wrap: break-word;
+}
+.error-page .error-page-right .error-title-main {
+	display: block;
+	font-size: 42px;
+	height: 70px;
+	line-height: 60px;
+	background: url(img/error-page-128.png) no-repeat scroll -30px center transparent;
+	text-align: left;
+	margin: 0;
+	padding-left: 80px;
+}
+.error-page .error-page-right.valign .error-title-main {
+	height: 150px;
+	line-height: 140px;
+}
+.error-page .error-page-right .error-title-msg {
+	display: block;
+	font-size: 14px;
+	font-family: 'Hiragino Sans GB', 'Helvetica Neue', "Microsoft YaHei", Tohoma;
+	padding: 0;
+	margin: 0;
+	height: 80px;
+	overflow: hidden;
+}
+.error-exception-stack {
+	display: block;
+	position: relative;
+	font-size: 13px;
+	font-family: "Lucida Sans Typewriter","Lucida Console",Monaco,"Bitstream Vera Sans Mono",monospace,"Microsoft YaHei";
+	line-height: 1.5em;
+	color: #D10000;
+	text-align: left;
+	margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+    word-break: normal;
+    white-space: pre-wrap;
+}

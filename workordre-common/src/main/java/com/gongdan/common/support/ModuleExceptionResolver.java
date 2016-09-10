@@ -1,19 +1,22 @@
 package com.gongdan.common.support;
-import com.gongdan.common.utils.ExceptionUtils;
-import com.gongdan.common.em.ErrorCodeEnum;
+
+import com.gongdan.common.consts.GlobalConstants;
 import com.gongdan.common.exception.SystemException;
+import com.gongdan.common.utils.ExceptionUtils;
 
 
 /**
  * 模块内异常解析逻辑
  * 
- *@author	  	yanziqi
+ * @author	  	pengpeng
+ * @date	  	2015年11月1日 下午11:08:50
+ * @version  	1.0
  */
 public class ModuleExceptionResolver {
 	
 	public static ExceptionMetadata resolveException(Throwable ex) {
 		Throwable target = null;
-		String code = ErrorCodeEnum.FAIL.getCode();
+		String code = GlobalConstants.RESULT_CODE_FAILURE;
 		String stackTrace = null;
 		String message = null;
 		boolean found = false;

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 应用日志配置 -->
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%-5p] [%l] %m%n"/>
+		</layout>
+	</appender>
+	<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${catalina.base}/logs/gongdan_admin"/>
+        <param name="DatePattern" value="'_'yyyy-MM-dd'.log'"/>
+        <layout class="org.apache.log4j.PatternLayout">
+         	<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%-5p] [%l] %m%n"/>
+        </layout>
+    </appender>
+    
+    <logger name="org.apache.commons">
+    	<level value="ERROR"/>
+    </logger>
+    <logger name="org.apache.http">
+    	<level value="ERROR"/>
+    </logger>
+    <logger name="org.springframework">
+    	<level value="INFO"/>
+    </logger>
+    <logger name="com.alibaba.druid">
+    	<level value="INFO"/>
+    </logger>
+    <logger name="druid.sql">
+    	<level value="INFO"/>
+    </logger>
+    <logger name="org.quartz">
+    	<level value="INFO"/>
+    </logger>
+    
+    <logger name="org.apache.shiro.web.servlet.SimpleCookie">
+    	<level value="INFO"/>
+    </logger>
+    
+    <logger name="com.gongdan">
+    	<level value="DEBUG"/>
+    </logger>
+    
+	<root>
+		<level value="DEBUG"/>
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="FILE"/>
+	</root>
+</log4j:configuration>

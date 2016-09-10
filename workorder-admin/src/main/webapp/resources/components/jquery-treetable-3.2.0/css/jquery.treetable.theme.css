@@ -1,0 +1,153 @@
+table.treetable {
+	border: 0 none;
+	border-collapse: collapse;
+	font-size: 13px;
+	line-height: 1;
+	width: 100%;
+}
+
+table.treetable caption {
+	font-size: 13px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+table.treetable thead tr th {
+	padding: 5px;
+	height: 40px;
+	text-align: left;
+	font-size: 13px;
+	font-weight: bold;
+	color: #fff;
+	vertical-align: middle;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	background-color: #eee;
+}
+table.treetable.treetable-primary thead tr th {
+	border-top: 1px solid #428bca;
+	border-bottom: 1px solid #428bca;
+	background-color: #428bca;
+}
+table.treetable.treetable-success thead tr th {
+	border-top: 1px solid #27ad60;
+	border-bottom: 1px solid #27ad60;
+	background-color: #27ad60;
+}
+
+table.treetable thead tr th.white, table.treetable tbody tr td.white {
+	border-right: 1px solid #fff;
+}
+
+table.treetable thead tr th.align-center, table.treetable tbody tr td.align-center {
+	text-align: center;
+}
+
+table.treetable tbody tr td {
+	cursor: default;
+	padding: 5px;
+	height: 35px;
+	border-top: 1px solid #fff;
+}
+
+table.treetable tbody tr td.bold {
+	font-weight: bold;
+}
+
+table.treetable tbody tr td.black {
+	color: #000;
+}
+
+table.treetable tbody tr td span {
+	background-position: center left;
+	background-repeat: no-repeat;
+	padding: 2px 0 2px 20px;
+}
+
+table.treetable.treetable-primary tbody tr td span.file {
+	background-image: url(../images/leaf-primary-16.png);
+}
+table.treetable.treetable-success tbody tr td span.file {
+	background-image: url(../images/leaf-success-16.png);
+}
+
+table.treetable.treetable-primary tbody tr td span.folder {
+	background-image: url(../images/folder-primary-16.png);
+}
+table.treetable.treetable-success tbody tr td span.folder {
+	background-image: url(../images/folder-success-16.png);
+}
+
+table.treetable tbody tr.selected td span.file {
+	background-image: url(../images/leaf-white-16.png);
+}
+
+table.treetable tbody tr.selected td span.folder {
+	background-image: url(../images/folder-white-16.png);
+}
+
+table.treetable.treetable-primary tbody tr.collapsed td span.indenter a {
+	background-image: url(../images/arrowright-primary-16.png);
+}
+table.treetable.treetable-success tbody tr.collapsed td span.indenter a {
+	background-image: url(../images/arrowright-success-16.png);
+}
+
+table.treetable.treetable-primary tbody tr.expanded td span.indenter a {
+	background-image: url(../images/arrowdown-primary-16.png);
+}
+table.treetable.treetable-success tbody tr.expanded td span.indenter a {
+	background-image: url(../images/arrowdown-success-16.png);
+}
+
+table.treetable tbody tr.branch td {
+	background-color: #f9f9f9;
+}
+
+table.treetable tbody tr:hover td {
+	background-color: #dfdfdf;	
+}
+
+table.treetable.treetable-primary tbody tr.selected td {
+	background-color: #428bca;
+	color: #fff;
+}
+table.treetable.treetable-success tbody tr.selected td {
+	background-color: #27ad60;
+	color: #fff;
+}
+
+table.treetable tbody tr td.no-result {
+	color: #000;
+	font-size: 15px;
+	font-weight: bold;
+	height: 45px;
+	text-align: center;
+}
+
+table.treetable tbody tr span.indenter a {
+	outline: none;
+	padding-top: 1px;
+	/* Expander shows outline after upgrading to 3.0 (#141) */
+}
+
+table.treetable tbody tr.collapsed.selected td span.indenter a {
+	background-image: url(../images/arrowright-white-16.png);
+}
+
+table.treetable tbody tr.expanded.selected td span.indenter a {
+	background-image: url(../images/arrowdown-white-16.png);
+}
+
+table.treetable tbody tr.accept {
+	background-color: #a3bce4;
+	color: #fff
+}
+
+table.treetable tbody tr.collapsed.accept td span.indenter a {
+	
+}
+
+table.treetable tbody tr.expanded.accept td span.indenter a {
+	
+}

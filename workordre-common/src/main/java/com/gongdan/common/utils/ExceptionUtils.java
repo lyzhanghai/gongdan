@@ -1,6 +1,5 @@
 package com.gongdan.common.utils;
 
-
 import java.util.regex.Pattern;
 
 /**
